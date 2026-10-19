@@ -1,0 +1,108 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-block-size: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3 {
+  line-height: var(--leading-tight);
+  font-weight: var(--weight-semibold);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-xl);
+}
+
+h2 {
+  font-size: var(--text-lg);
+}
+
+p {
+  max-inline-size: var(--measure);
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 0.2em;
+}
+
+code,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Japanese typography.
+   Overriding tokens, not individual rules, keeps every component correct
+   automatically: they all read these variables. */
+   :root:lang(ja) {
+    --font-sans: system-ui, -apple-system, "Hiragino Sans",
+      "Hiragino Kaku Gothic ProN", "Yu Gothic", YuGothic, Meiryo, sans-serif;
+  
+    --leading-normal: 1.7;
+    --leading-tight: 1.4;
+  
+    /* Measure in em: one em is one full-width Japanese character. */
+    --measure: 35em;
+  
+    /* Small kanji get hard to read at 12px, so raise the smallest size. */
+    --text-xs: 0.8125rem;
+  }
+  
+  :lang(ja) {
+    line-break: strict;
+    word-break: auto-phrase;
+    text-autospace: normal;
+  }
