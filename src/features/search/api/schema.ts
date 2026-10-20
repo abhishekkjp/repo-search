@@ -8,15 +8,15 @@ export const GITHUB_SEARCH_RESULT_CAP = 1000;
 
 const ownerSchema = z.object({
   login: z.string(),
-  avatar_url: z.string().url(),
-  html_url: z.string().url(),
+  avatar_url: z.url(),
+  html_url: z.url(),
 });
 
 export const repositorySchema = z.object({
   id: z.number(),
   name: z.string(),
   full_name: z.string(),
-  html_url: z.string().url(),
+  html_url: z.url(),
   description: z.string().nullable(),
   stargazers_count: z.number(),
   forks_count: z.number(),

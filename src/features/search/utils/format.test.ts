@@ -70,9 +70,7 @@ describe("formatRelativeTime", () => {
   });
 
   it("handles times under a minute", () => {
-    expect(formatRelativeTime("2025-06-15T11:59:50Z", "en", NOW)).toBe(
-      "now",
-    );
+    expect(formatRelativeTime("2025-06-15T11:59:50Z", "en", NOW)).toBe("now");
   });
 
   it("returns the original text for an invalid date", () => {

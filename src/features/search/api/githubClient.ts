@@ -36,26 +36,21 @@ function readResetDate(headers: Headers): Date | undefined {
   return Number.isFinite(seconds) ? new Date(seconds * 1000) : undefined;
 }
 
-async function toSearchError(response: Response): Promise<SearchError> {
+function toSearchError(response: Response): SearchError {
   const isRateLimited =
     response.status === 429 ||
     (response.status === 403 &&
       response.headers.get("x-ratelimit-remaining") === "0");
 
   if (isRateLimited) {
-    return new SearchError(
-      "rate-limit",
-      { resetAt: readResetDate(response.headers) },
-    );
+    return new SearchError("rate-limit", {
+      resetAt: readResetDate(response.headers),
+    });
   }
   if (response.status === 422) {
-    return new SearchError(
-      "invalid-query",
-    );
+    return new SearchError("invalid-query");
   }
-  return new SearchError(
-    "server",
-  );
+  return new SearchError("server");
 }
 
 export async function searchRepositories(
@@ -63,9 +58,7 @@ export async function searchRepositories(
   signal?: AbortSignal,
 ): Promise<SearchResponse> {
   if (params.page * PER_PAGE - PER_PAGE >= GITHUB_SEARCH_RESULT_CAP) {
-    throw new SearchError(
-      "invalid-query",
-    );
+    throw new SearchError("invalid-query");
   }
 
   let response: Response;
@@ -76,20 +69,14 @@ export async function searchRepositories(
     });
   } catch (cause) {
     if (signal?.aborted) throw cause; // cancellation is not an error to show
-    throw new SearchError(
-      "network",
-      { cause },
-    );
+    throw new SearchError("network", { cause });
   }
 
-  if (!response.ok) throw await toSearchError(response);
+  if (!response.ok) throw toSearchError(response);
 
   const parsed = searchResponseSchema.safeParse(await response.json());
   if (!parsed.success) {
-    throw new SearchError(
-      "unexpected-response",
-      { cause: parsed.error },
-    );
+    throw new SearchError("unexpected-response", { cause: parsed.error });
   }
   return parsed.data;
 }

@@ -1,8 +1,7 @@
 import { GITHUB_SEARCH_RESULT_CAP } from "../api/schema";
 
 export type PageItem =
-  | { kind: "page"; page: number }
-  | { kind: "ellipsis"; key: string };
+  { kind: "page"; page: number } | { kind: "ellipsis"; key: string };
 
 /** How many results the user can actually reach, whatever GitHub reports. */
 export function getReachableCount(totalCount: number): number {
@@ -72,7 +71,7 @@ export function getPageItems(
       if (gap === 2) {
         items.push({ kind: "page", page: previous + 1 });
       } else if (gap > 2) {
-        items.push({ kind: "ellipsis", key: `after-${previous}` });
+        items.push({ kind: "ellipsis", key: `after-${String(previous)}` });
       }
     }
     items.push({ kind: "page", page });
