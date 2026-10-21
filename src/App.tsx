@@ -5,6 +5,26 @@ import { useLocale } from "./i18n/useLocale";
 import { ThemeToggle } from "./theme/ThemeToggle";
 import { classNames } from "./utils/classNames";
 import styles from "./App.module.css";
+import { RepoCard } from "./features/search/components/RepoCard";
+import type { Repository } from "./features/search/api/schema";
+
+const SAMPLE: Repository = {
+  id: 1,
+  name: "react",
+  full_name: "facebook/react",
+  html_url: "https://github.com/facebook/react",
+  description:
+    "The library for web and native user interfaces. Build user interfaces out of individual pieces called components.",
+  stargazers_count: 238412,
+  forks_count: 48765,
+  language: "JavaScript",
+  updated_at: "2026-10-18T09:00:00Z",
+  owner: {
+    login: "facebook",
+    avatar_url: "https://avatars.githubusercontent.com/u/69631?v=4",
+    html_url: "https://github.com/facebook",
+  },
+};
 
 export default function App() {
   const { t } = useLocale();
@@ -39,6 +59,7 @@ export default function App() {
           </section>
         )}
       </main>
+      {state.query !== "" && <RepoCard repo={SAMPLE} />}
     </>
   );
 }
