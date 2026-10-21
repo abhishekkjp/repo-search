@@ -1,0 +1,4 @@
+.note {
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}

@@ -7,6 +7,10 @@ import { classNames } from "./utils/classNames";
 import styles from "./App.module.css";
 import { RepoCard } from "./features/search/components/RepoCard";
 import type { Repository } from "./features/search/api/schema";
+import { Pagination } from "./features/search/components/Pagination";
+import { SearchError } from "./features/search/api/errors";
+import { ErrorState } from "./features/search/components/ErrorState";
+import { ResultSkeleton } from "./features/search/components/ResultSkeleton";
 
 const SAMPLE: Repository = {
   id: 1,
@@ -25,6 +29,8 @@ const SAMPLE: Repository = {
     html_url: "https://github.com/facebook",
   },
 };
+
+const DEMO_RESET = new Date(Date.now() + 60_000);
 
 export default function App() {
   const { t } = useLocale();
@@ -60,6 +66,42 @@ export default function App() {
         )}
       </main>
       {state.query !== "" && <RepoCard repo={SAMPLE} />}
+      {state.query !== "" && (
+        <Pagination
+          current={state.page}
+          totalPages={34}
+          isBusy={false}
+          onPageChange={(page) => {
+            update({ page });
+          }}
+        />
+      )}
+
+      {state.query === "demo-loading" && <ResultSkeleton />}
+      {state.query === "demo-rate" && (
+        <ErrorState
+          error={new SearchError("rate-limit", { resetAt: DEMO_RESET })}
+          onRetry={() => {
+            /* demo only */
+          }}
+        />
+      )}
+      {state.query === "demo-network" && (
+        <ErrorState
+          error={new SearchError("network")}
+          onRetry={() => {
+            /* demo only */
+          }}
+        />
+      )}
+      {state.query === "demo-invalid" && (
+        <ErrorState
+          error={new SearchError("invalid-query")}
+          onRetry={() => {
+            /* demo only */
+          }}
+        />
+      )}
     </>
   );
 }

@@ -1,0 +1,59 @@
+.label {
+  margin-block-end: var(--space-3);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.list {
+  display: grid;
+  gap: var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.card span {
+  display: block;
+  block-size: 0.875rem;
+  background: var(--surface);
+  border-radius: 0.25rem;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.lineShort {
+  inline-size: 25%;
+}
+
+.lineTitle {
+  inline-size: 45%;
+  block-size: 1.25rem;
+}
+
+.lineLong {
+  inline-size: 90%;
+}
+
+.lineMeta {
+  inline-size: 35%;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* Our global reduced-motion rule shortens animations to 0.01ms, which on an
+     infinite loop would flicker. Skeletons simply stand still instead. */
+@media (prefers-reduced-motion: reduce) {
+  .card span {
+    animation: none;
+  }
+}

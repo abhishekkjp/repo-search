@@ -1,0 +1,77 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.summary {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.pages {
+  display: none;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0;
+  list-style: none;
+}
+
+.step,
+.page {
+  min-block-size: 2.75rem;
+  min-inline-size: 2.75rem;
+  padding-inline: var(--space-3);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.step:hover:not(:disabled),
+.page:hover {
+  background: var(--surface);
+}
+
+.step:disabled {
+  color: var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.step[aria-disabled="true"],
+.page[aria-disabled="true"] {
+  cursor: progress;
+}
+
+.current,
+.current:hover {
+  background: var(--accent);
+  border-color: transparent;
+  color: var(--on-accent);
+  font-weight: var(--weight-semibold);
+}
+
+.ellipsis {
+  min-inline-size: 1.5rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Wide screens: show the number list, hide the compact summary. */
+@media (min-width: 40rem) {
+  .nav {
+    justify-content: center;
+    gap: var(--space-3);
+  }
+
+  .summary {
+    display: none;
+  }
+
+  .pages {
+    display: flex;
+  }
+}
