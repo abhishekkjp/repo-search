@@ -14,6 +14,9 @@ export const ja: Dictionary = {
     placeholder: "例：「react hooks language:typescript」",
     submit: "検索",
     clear: "検索をクリア",
+    errorEmpty: "キーワードを入力してください。",
+    errorTooLong: (max) =>
+      `検索条件が長すぎます。${max}文字以内で入力してください。`,
   },
 
   sort: {

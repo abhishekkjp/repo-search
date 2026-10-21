@@ -18,6 +18,9 @@ export const en = {
     placeholder: "Try “react hooks language:typescript”",
     submit: "Search",
     clear: "Clear search",
+    errorEmpty: "Enter a keyword to search.",
+    errorTooLong: (max: string): string =>
+      `That search is too long. Use ${max} characters or fewer.`,
   },
 
   sort: {
