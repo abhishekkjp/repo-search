@@ -37,6 +37,7 @@ export const ja: Dictionary = {
     starsLabel: (count) => `${count}個のスター`, // [CHECK] screen-reader label
     forksLabel: (count) => `${count}個のフォーク`, // [CHECK] screen-reader label
     ownerAvatarAlt: (owner) => `${owner}のアバター`,
+    heading: "検索結果",
   },
 
   pagination: {

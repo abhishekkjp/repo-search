@@ -43,6 +43,7 @@ export const en = {
     starsLabel: (count: string): string => `${count} stars`,
     forksLabel: (count: string): string => `${count} forks`,
     ownerAvatarAlt: (owner: string): string => `Avatar of ${owner}`,
+    heading: "Results",
   },
 
   pagination: {

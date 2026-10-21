@@ -2,7 +2,7 @@ import { useCallback, useSyncExternalStore } from "react";
 import type { SortOption } from "../api/githubClient";
 import { parsePage } from "../utils/pagination";
 
-const SORTS: readonly SortOption[] = [
+export const SORTS: readonly SortOption[] = [
   "best-match",
   "stars",
   "forks",
@@ -58,20 +58,27 @@ export function useSearchState(): {
   const search = useSyncExternalStore(subscribe, getSnapshot);
   const state = parseSearchState(search);
 
-  const update = useCallback((next: Partial<SearchState>) => {
-    const current = parseSearchState(window.location.search);
-    const merged = { ...current, ...next };
-    // A new query or sort starts again from the first page.
-    if (
-      (next.query !== undefined && next.query !== current.query) ||
-      (next.sort !== undefined && next.sort !== current.sort)
-    ) {
-      merged.page = next.page ?? 1;
-    }
-    const url = `${window.location.pathname}${serializeSearchState(merged)}`;
-    window.history.pushState(null, "", url);
-    window.dispatchEvent(new PopStateEvent("popstate"));
-  }, []);
+  const update = useCallback(
+    (next: Partial<SearchState>, options: { replace?: boolean } = {}) => {
+      const current = parseSearchState(window.location.search);
+      const merged = { ...current, ...next };
+      // A new query or sort starts again from the first page.
+      if (
+        (next.query !== undefined && next.query !== current.query) ||
+        (next.sort !== undefined && next.sort !== current.sort)
+      ) {
+        merged.page = next.page ?? 1;
+      }
+      const url = `${window.location.pathname}${serializeSearchState(merged)}`;
+      if (options.replace === true) {
+        window.history.replaceState(null, "", url);
+      } else {
+        window.history.pushState(null, "", url);
+      }
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    },
+    [],
+  );
 
   return { state, update };
 }
