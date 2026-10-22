@@ -1,8 +1,8 @@
-import { useLocale } from "../../../i18n/useLocale";
-import type { SearchError } from "../api/errors";
-import { useCountdown } from "../hooks/useCountdown";
-import { formatNumber } from "../utils/format";
-import { StatusMessage } from "./StatusMessage";
+import { useLocale } from "../../../../i18n/useLocale";
+import type { SearchError } from "../../api/errors";
+import { useCountdown } from "../../hooks/useCountdown";
+import { formatNumber } from "../../utils/format";
+import { StatusMessage } from "../StatusMessage/StatusMessage";
 import styles from "./ErrorState.module.css";
 
 interface ErrorStateProps {

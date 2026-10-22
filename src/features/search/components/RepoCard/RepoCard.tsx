@@ -1,11 +1,11 @@
-import { useLocale } from "../../../i18n/useLocale";
-import type { Repository } from "../api/schema";
+import { useLocale } from "../../../../i18n/useLocale";
+import type { Repository } from "../../api/schema";
 import {
   formatCompactNumber,
   formatDate,
   formatNumber,
   formatRelativeTime,
-} from "../utils/format";
+} from "../../utils/format";
 import styles from "./RepoCard.module.css";
 
 interface RepoCardProps {

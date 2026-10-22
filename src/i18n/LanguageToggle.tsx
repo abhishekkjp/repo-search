@@ -1,4 +1,4 @@
-import { SegmentedControl } from "../components/SegmentedControl";
+import { SegmentedControl } from "../components/SegmentedControl/SegmentedControl";
 import { useLocale } from "./useLocale";
 import { LOCALES, type Locale } from "./locale";
 

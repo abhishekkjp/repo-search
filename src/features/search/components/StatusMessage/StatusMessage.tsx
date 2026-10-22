@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { classNames } from "../../../utils/classNames";
+import { classNames } from "../../../../utils/classNames";
 import styles from "./StatusMessage.module.css";
 
 interface StatusMessageProps {

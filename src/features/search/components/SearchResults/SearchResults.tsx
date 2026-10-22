@@ -1,14 +1,14 @@
 import { useEffect } from "react";
-import { useLocale } from "../../../i18n/useLocale";
-import { PER_PAGE } from "../api/githubClient";
-import { GITHUB_SEARCH_RESULT_CAP } from "../api/schema";
-import { useRepoSearch } from "../hooks/useRepoSearch";
-import type { SearchState } from "../hooks/useSearchState";
-import { clampPage, getTotalPages } from "../utils/pagination";
-import { ErrorState } from "./ErrorState";
-import { ResultList } from "./ResultList";
-import { ResultSkeleton } from "./ResultSkeleton";
-import { StatusMessage } from "./StatusMessage";
+import { useLocale } from "../../../../i18n/useLocale";
+import { PER_PAGE } from "../../api/githubClient";
+import { GITHUB_SEARCH_RESULT_CAP } from "../../api/schema";
+import { useRepoSearch } from "../../hooks/useRepoSearch";
+import type { SearchState } from "../../hooks/useSearchState";
+import { clampPage, getTotalPages } from "../../utils/pagination";
+import { ErrorState } from "../ErrorState/ErrorState";
+import { ResultList } from "../ResultList/ResultList";
+import { ResultSkeleton } from "../ResultSkeleton/ResultSkeleton";
+import { StatusMessage } from "../StatusMessage/StatusMessage";
 
 const MAX_PAGE = getTotalPages(GITHUB_SEARCH_RESULT_CAP, PER_PAGE);
 

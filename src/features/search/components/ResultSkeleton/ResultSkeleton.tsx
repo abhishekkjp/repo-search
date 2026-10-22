@@ -1,4 +1,4 @@
-import { useLocale } from "../../../i18n/useLocale";
+import { useLocale } from "../../../../i18n/useLocale";
 import styles from "./ResultSkeleton.module.css";
 
 const PLACEHOLDER_COUNT = 5;

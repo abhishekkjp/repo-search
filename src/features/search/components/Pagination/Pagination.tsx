@@ -1,7 +1,7 @@
-import { useLocale } from "../../../i18n/useLocale";
-import { classNames } from "../../../utils/classNames";
-import { formatNumber } from "../utils/format";
-import { getPageItems } from "../utils/pagination";
+import { useLocale } from "../../../../i18n/useLocale";
+import { classNames } from "../../../../utils/classNames";
+import { formatNumber } from "../../utils/format";
+import { getPageItems } from "../../utils/pagination";
 import styles from "./Pagination.module.css";
 
 interface PaginationProps {

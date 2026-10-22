@@ -1,6 +1,6 @@
 import styles from "./App.module.css";
-import { SearchForm } from "./features/search/components/SearchForm";
-import { SearchResults } from "./features/search/components/SearchResults";
+import { SearchForm } from "./features/search/components/SearchForm/SearchForm";
+import { SearchResults } from "./features/search/components/SearchResults/SearchResults";
 import { useSearchState } from "./features/search/hooks/useSearchState";
 import { LanguageToggle } from "./i18n/LanguageToggle";
 import { useLocale } from "./i18n/useLocale";

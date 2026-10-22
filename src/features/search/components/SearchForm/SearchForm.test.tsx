@@ -1,8 +1,8 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
-import { getViolations } from "../../../tests/axe";
-import { renderWithProviders } from "../../../tests/renderWithProviders";
+import { getViolations } from "../../../../tests/axe";
+import { renderWithProviders } from "../../../../tests/renderWithProviders";
 import { SearchForm } from "./SearchForm";
 
 function getInput() {

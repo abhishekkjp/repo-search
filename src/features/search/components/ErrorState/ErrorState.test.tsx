@@ -1,8 +1,8 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
-import { renderWithProviders } from "../../../tests/renderWithProviders";
-import { SearchError, type SearchErrorKind } from "../api/errors";
+import { renderWithProviders } from "../../../../tests/renderWithProviders";
+import { SearchError, type SearchErrorKind } from "../../api/errors";
 import { ErrorState } from "./ErrorState";
 
 const KINDS: SearchErrorKind[] = [

@@ -1,6 +1,6 @@
 import { useId, useRef, useState, type SubmitEvent } from "react";
-import { useLocale } from "../../../i18n/useLocale";
-import { MAX_QUERY_LENGTH, validateQuery } from "../utils/validateQuery";
+import { useLocale } from "../../../../i18n/useLocale";
+import { MAX_QUERY_LENGTH, validateQuery } from "../../utils/validateQuery";
 import styles from "./SearchForm.module.css";
 
 interface SearchFormProps {

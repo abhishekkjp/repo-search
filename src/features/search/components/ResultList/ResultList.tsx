@@ -1,18 +1,18 @@
 import { useRef } from "react";
-import { useLocale } from "../../../i18n/useLocale";
-import { classNames } from "../../../utils/classNames";
-import { PER_PAGE, type SortOption } from "../api/githubClient";
-import type { SearchResponse } from "../api/schema";
-import { formatNumber } from "../utils/format";
+import { useLocale } from "../../../../i18n/useLocale";
+import { classNames } from "../../../../utils/classNames";
+import { PER_PAGE, type SortOption } from "../../api/githubClient";
+import type { SearchResponse } from "../../api/schema";
+import { formatNumber } from "../../utils/format";
 import {
   getReachableCount,
   getResultRange,
   isResultCapped,
-} from "../utils/pagination";
-import { Pagination } from "./Pagination";
-import { RepoCard } from "./RepoCard";
+} from "../../utils/pagination";
+import { Pagination } from "../Pagination/Pagination";
+import { RepoCard } from "../RepoCard/RepoCard";
 import styles from "./ResultList.module.css";
-import { SortSelect } from "./SortSelect";
+import { SortSelect } from "../SortSelect/SortSelect";
 
 interface ResultListProps {
   data: SearchResponse;

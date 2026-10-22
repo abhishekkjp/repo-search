@@ -1,7 +1,7 @@
 import { useId } from "react";
-import { useLocale } from "../../../i18n/useLocale";
-import type { SortOption } from "../api/githubClient";
-import { SORTS } from "../hooks/useSearchState";
+import { useLocale } from "../../../../i18n/useLocale";
+import type { SortOption } from "../../api/githubClient";
+import { SORTS } from "../../hooks/useSearchState";
 import styles from "./SortSelect.module.css";
 
 interface SortSelectProps {
